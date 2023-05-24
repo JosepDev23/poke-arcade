@@ -1,0 +1,23 @@
+.floor {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.image_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 60%;
+  background-color: aqua;
+}
+
+.names_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
