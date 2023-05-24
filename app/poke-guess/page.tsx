@@ -14,14 +14,15 @@ export default function PokeGuess() {
   }, [])
 
   const handleRetrievePokemons = async () => {
-    const retrievedPokemons = await getFourRandomPokemon();
+    const retrievedPokemons = await getFourRandomPokemon()
     setPokemons(retrievedPokemons)
+    setPokemonForImg(retrievedPokemons[Math.floor(Math.random() * 4)])
   }
 
   return (
     <div className={styles.floor}>
       <div className={styles.image_wrapper}>
-
+        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonForImg?.id}.png`}/>
       </div>
       <div className={styles.names_wrapper}>
         <button style={{ "--clr": "#39FF14" } as React.CSSProperties}><span>{pokemons[0]?.name}</span><i></i></button>
