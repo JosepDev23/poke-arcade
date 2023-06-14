@@ -3,11 +3,18 @@ import { useEffect, useState } from "react"
 import Pokemon from "../models/Pokemon"
 import { getFourRandomPokemon } from "./domain/getRandomPokemon"
 import styles from './pokeguess.module.css'
+import Popup from "../components/popup/popup"
+import { useRouter } from "next/navigation"
 
 
 export default function PokeGuess() {
+  const router = useRouter()
+
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [pokemonForImg, setPokemonForImg] = useState<Pokemon>()
+
+  const [openPopup, setOpenPopup] = useState(false)
+  const [textPopup, setTextPopup] = useState('')
 
   useEffect(() => {
     handleRetrievePokemons()
@@ -20,12 +27,27 @@ export default function PokeGuess() {
   }
 
   const handlePokemonNameClick = (pokemonName: string) => {
-    if (pokemonName === pokemonForImg?.name) console.log('win')
-    else console.log('lose')
+    if (pokemonName === pokemonForImg?.name) setTextPopup('Congrats! You win :)')
+    else setTextPopup('You failed, the pokemon was: ' + pokemonForImg?.name)
+    setOpenPopup(true)
   }
 
   return (
     <div className={styles.floor}>
+      <Popup
+        open={openPopup}
+        text={textPopup}
+        leftBtnText='EXIT'
+        leftBtnOnClick={() => {
+          setOpenPopup(false)
+          router.back()
+        }}
+        rightBtnText='Play Again!'
+        rightBtnOnClick={() => {
+          handleRetrievePokemons()
+          setOpenPopup(false)
+        }}
+      />
       <div className={styles.image_wrapper}>
         {pokemonForImg ?
           <img className={styles.pokemon_image}
