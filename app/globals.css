@@ -2,8 +2,7 @@ body {
   margin: 0px;
   width: 100vw;
   height: 100vh;
-  background: rgb(20,0,36);
-  background: linear-gradient(180deg, rgba(20,0,36,1) 0%, rgba(22,2,34,1) 33%, rgba(22,0,38,1) 100%);
+  background: #110d17;
 }
 
 h1 {
@@ -13,7 +12,7 @@ h1 {
 
 button {
   position: relative;
-  background: #444;
+  background: #4c3b68;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
@@ -36,7 +35,7 @@ button::before {
   content: "";
   position: absolute;
   inset: 2px;
-  background: #272822;
+  background: #4c3b68;
 }
 
 button span {

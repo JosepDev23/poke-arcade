@@ -2,8 +2,7 @@
   height: 100px;
   display: flex;
   align-items: center;
-  background: rgb(29, 32, 48);
-  background: linear-gradient(90deg, rgba(29, 32, 48, 1) 16%, rgba(92, 0, 148, 1) 43%, rgba(111, 0, 193, 1) 100%);
+  background: #584479;
 }
 
 .body {
