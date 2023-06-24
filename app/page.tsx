@@ -10,6 +10,10 @@ export default function Home() {
     router.push('/poke-guess')
   }
 
+  const handleClickPokeClicker = () => {
+    router.push('poke-clicker')
+  }
+
   return (
     <div className={styles.floor}>
       <div className={styles.cards_container}>
@@ -17,9 +21,9 @@ export default function Home() {
           <img src='/pokeguess_background.png' />
           <img src='/pokeguess_over.png' />
         </article>
-        <article onClick={handleClickPokeGuess} className={styles.card_wrapper}>
-          <img src='/pokeguess_background.png' />
-          <img src='/pokeguess_over.png' />
+        <article onClick={handleClickPokeClicker} className={styles.card_wrapper}>
+          <img src='/pokeclicker_background.png' />
+          <img src='/pokeclicker_over.png' />
         </article>
         <article onClick={handleClickPokeGuess} className={styles.card_wrapper}>
           <img src='/pokeguess_background.png' />
