@@ -6,7 +6,7 @@ import React from "react"
 
 function Providers({ children }: React.PropsWithChildren) {
   const [queryClient] = React.useState(
-    new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
+    new QueryClient() // new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
   )
 
   return (
