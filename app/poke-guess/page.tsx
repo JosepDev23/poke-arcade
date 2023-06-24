@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Pokemon from "../models/Pokemon"
 import { getFourRandomPokemon } from "./domain/getRandomPokemon"
 import styles from './pokeguess.module.css'
@@ -15,7 +15,7 @@ export default function PokeGuess() {
   const [openPopup, setOpenPopup] = useState(false)
   const [textPopup, setTextPopup] = useState('')
 
-  const pokemonQuery = useQuery<Pokemon[]>({
+  const { isLoading, isFetching, isSuccess, data, refetch } = useQuery<Pokemon[]>({
     queryKey: ['poke-guess-pokemon'],
     queryFn: () => getFourRandomPokemon().then((pokemons) => {
       setPokemonForImg(pokemons[Math.floor(Math.random() * 4)])
@@ -31,9 +31,9 @@ export default function PokeGuess() {
 
   return (
     <div className={styles.floor}>
-      {pokemonQuery.isLoading || pokemonQuery.isFetching ?
+      {isLoading || isFetching ?
         <h1>Loading...</h1> : <>
-          {pokemonQuery.isSuccess && <>
+          {isSuccess && <>
             <Popup
               open={openPopup}
               text={textPopup}
@@ -45,7 +45,7 @@ export default function PokeGuess() {
               rightBtnText='Play Again!'
               rightBtnOnClick={() => {
                 setOpenPopup(false)
-                pokemonQuery.refetch()
+                refetch()
               }}
             />
             <div className={styles.image_wrapper}>
@@ -59,27 +59,27 @@ export default function PokeGuess() {
             <div className={styles.names_wrapper}>
               <button
                 style={{ "--clr": "#39FF14" } as React.CSSProperties}
-                onClick={() => handlePokemonNameClick(pokemonQuery.data[0]?.name)}
+                onClick={() => handlePokemonNameClick(data[0]?.name)}
               >
-                <span>{pokemonQuery.data[0]?.name}</span><i></i>
+                <span>{data[0]?.name}</span><i></i>
               </button>
               <button
                 style={{ "--clr": "#FF44CC" } as React.CSSProperties}
-                onClick={() => handlePokemonNameClick(pokemonQuery.data[1]?.name)}
+                onClick={() => handlePokemonNameClick(data[1]?.name)}
               >
-                <span>{pokemonQuery.data[1]?.name}</span><i></i>
+                <span>{data[1]?.name}</span><i></i>
               </button>
               <button
                 style={{ "--clr": "#0FF0FC" } as React.CSSProperties}
-                onClick={() => handlePokemonNameClick(pokemonQuery.data[2]?.name)}
+                onClick={() => handlePokemonNameClick(data[2]?.name)}
               >
-                <span>{pokemonQuery.data[2]?.name}</span><i></i>
+                <span>{data[2]?.name}</span><i></i>
               </button>
               <button
                 style={{ "--clr": "#8A2BE2" } as React.CSSProperties}
-                onClick={() => handlePokemonNameClick(pokemonQuery.data[3]?.name)}
+                onClick={() => handlePokemonNameClick(data[3]?.name)}
               >
-                <span>{pokemonQuery.data[3]?.name}</span><i></i>
+                <span>{data[3]?.name}</span><i></i>
               </button>
             </div>
           </>}
