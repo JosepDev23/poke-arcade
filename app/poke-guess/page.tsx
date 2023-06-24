@@ -6,6 +6,7 @@ import styles from './pokeguess.module.css'
 import Popup from "../components/popup/popup"
 import { useRouter } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
+import Loading from "../components/loading/loading"
 
 
 export default function PokeGuess() {
@@ -32,7 +33,7 @@ export default function PokeGuess() {
   return (
     <div className={styles.floor}>
       {isLoading || isFetching ?
-        <h1>Loading...</h1> : <>
+        <Loading /> : <>
           {isSuccess && <>
             <Popup
               open={openPopup}
