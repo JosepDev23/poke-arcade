@@ -32,7 +32,7 @@ button:hover {
 }
 
 button::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 2px;
   background: #4c3b68;
@@ -49,7 +49,7 @@ button i {
 }
 
 button i::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 10px;
   height: 2px;
@@ -67,7 +67,7 @@ button:hover i::before {
 }
 
 button i::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 10px;
   height: 2px;
