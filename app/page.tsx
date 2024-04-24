@@ -16,6 +16,10 @@ export default function Home() {
           <img src="/pokeguess_background.jpg" />
           <img src="/pokeguess_over.png" />
         </article>
+        <article onClick={handleClickPokeGuess} className={styles.card_wrapper}>
+          <img src="/pokeclicker_background.jpg" />
+          <img src="/pokeclicker_over.png" />
+        </article>
       </div>
     </div>
   );
