@@ -2,6 +2,7 @@ import './globals.css'
 import styles from './layout.module.css'
 import React from 'react'
 import Providers from './utils/providers'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'PokeArcade',
@@ -16,7 +17,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <img className={styles.logo} src="/pokearcade_logo.jpeg" />
+        <Link href={'/'}>
+          <img className={styles.logo} src="/pokearcade_logo.jpeg" />
+        </Link>
         <div className={styles.body}>
           <Providers>{children}</Providers>
         </div>
