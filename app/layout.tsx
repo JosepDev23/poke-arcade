@@ -18,7 +18,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Link href={'/'}>
-          <img className={styles.logo} src="/pokearcade_logo.jpeg" />
+          <img className={styles.logo} src="/pokearcade_logo.png" />
         </Link>
         <div className={styles.body}>
           <Providers>{children}</Providers>

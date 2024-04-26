@@ -7,21 +7,20 @@ export default function PokeClicker() {
 
   return (
     <div className={styles.floor}>
-      <button
-        style={
-          { '--clr': '#0FF0FC', marginRight: '300px' } as React.CSSProperties
-        }
+      <article
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginRight: '300px',
+        }}
       >
-        <span style={{ display: 'flex', flexDirection: 'column' }}>
-          <img
-            onClick={() => setCounter((prev) => ++prev)}
-            className={styles.image}
-            src="/pokeclicker_over.png"
-          ></img>
-          Click me!!
-        </span>
-        <i></i>
-      </button>
+        <img
+          onClick={() => setCounter((prev) => ++prev)}
+          className={styles.image}
+          src="/pokeclicker_over.png"
+        ></img>
+      </article>
       <button style={{ '--clr': '#0FF0FC' } as React.CSSProperties}>
         <span>{'Counter: ' + counter}</span>
         <i></i>
